@@ -6,7 +6,7 @@ type: Opaque
 stringData:
   GIT_USERNAME: ""
   GIT_TOKEN: ""
-  GIT_REPO_URL: "https://github.com/Chinmay-Singhal/wire-mock-deployment.git"
+  GIT_REPO_URL: "github.com/Chinmay-Singhal/wire-mock-deployment.git"
   GIT_BRANCH: "main"
 ---
 apiVersion: apps/v1
