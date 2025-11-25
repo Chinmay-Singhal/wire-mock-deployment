@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getNewCashAccountNumberResponse xmlns:ns2="http://www.soprabanking.com/platform/CB/wsdl">
+      <getNewCashAccountNumberOutResult>
+        <returnContext>
+          <exchangeReturnCod>0</exchangeReturnCod>
+        </returnContext>
+        <getNewCashAccountNumberOut>
+          <newAccountNumber>1122334455</newAccountNumber>
+          <generationDate>2025-11-25</generationDate>
+          <status>RESERVED</status>
+        </getNewCashAccountNumberOut>
+      </getNewCashAccountNumberOutResult>
+    </ns2:getNewCashAccountNumberResponse>
+  </soap:Body>
+</soap:Envelope>

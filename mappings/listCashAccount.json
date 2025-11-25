@@ -1,0 +1,26 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/cwsoft/webservicesv4/CashAccountWS/CashAccountWebServiceImpl",
+    "bodyPatterns": [
+      {
+        "contains": "listCashAccount"
+      },
+      {
+        "doesNotMatch": "listCashAccountForClient|listCashAccountForPrincipal|listCashAccountForThirdParty|listCashAccountAccessibleForClient|listCashAccountProxy|listCashAccountAuthorityAndProxy"
+      }
+    ],
+    "headers": {
+      "Content-Type": {
+        "contains": "text/xml"
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/xml;charset=UTF-8"
+    },
+    "bodyFileName": "listCashAccount-response.xml"
+  }
+}

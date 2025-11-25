@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:listCashAccountAuthorityAndProxyResponse xmlns:ns2="http://www.soprabanking.com/platform/CB/wsdl">
+      <listCashAccountAuthorityAndProxyOutResult>
+        <returnContext>
+          <exchangeReturnCod>0</exchangeReturnCod>
+        </returnContext>
+        <listCashAccountAuthorityAndProxyOut>
+          <cashAccountList>
+            <cashAccount>
+              <accountNumber>1010101010</accountNumber>
+              <holderSwitch>1</holderSwitch>
+              <proxySwitch>1</proxySwitch>
+              <authorityLevel>FULL</authorityLevel>
+            </cashAccount>
+          </cashAccountList>
+        </listCashAccountAuthorityAndProxyOut>
+      </listCashAccountAuthorityAndProxyOutResult>
+    </ns2:listCashAccountAuthorityAndProxyResponse>
+  </soap:Body>
+</soap:Envelope>

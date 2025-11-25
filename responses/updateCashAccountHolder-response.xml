@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:updateCashAccountHolderResponse xmlns:ns2="http://www.soprabanking.com/platform/CB/wsdl">
+      <updateCashAccountHolderOutResult>
+        <returnContext>
+          <exchangeReturnCod>0</exchangeReturnCod>
+          <feedbackList>
+            <feedback>
+              <feedbackCod>UPDATE_SUCCESS</feedbackCod>
+              <feedbackSeverityCod>INFO</feedbackSeverityCod>
+              <feedbackTxt>Account holder updated successfully</feedbackTxt>
+            </feedback>
+          </feedbackList>
+        </returnContext>
+        <responseContext>
+          <optLockBufferOut>LOCK999999</optLockBufferOut>
+        </responseContext>
+        <updateCashAccountHolderOut>
+          <updateStatus>SUCCESS</updateStatus>
+          <updateDate>2025-11-25</updateDate>
+        </updateCashAccountHolderOut>
+      </updateCashAccountHolderOutResult>
+    </ns2:updateCashAccountHolderResponse>
+  </soap:Body>
+</soap:Envelope>

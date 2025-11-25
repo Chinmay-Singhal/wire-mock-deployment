@@ -1,0 +1,86 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: git-credentials
+type: Opaque
+stringData:
+  GIT_USERNAME: ""
+  GIT_TOKEN: ""
+  GIT_REPO_URL: ""
+  GIT_BRANCH: "main"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wiremock
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wiremock
+  template:
+    metadata:
+      labels:
+        app: wiremock
+    spec:
+      initContainers:
+      - name: git-clone
+        image: alpine/git:latest
+        env:
+        - name: GIT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: git-credentials
+              key: GIT_USERNAME
+        - name: GIT_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: git-credentials
+              key: GIT_TOKEN
+        - name: GIT_REPO_URL
+          valueFrom:
+            secretKeyRef:
+              name: git-credentials
+              key: GIT_REPO_URL
+        - name: GIT_BRANCH
+          valueFrom:
+            secretKeyRef:
+              name: git-credentials
+              key: GIT_BRANCH
+        command:
+        - sh
+        - -c
+        - |
+          echo "Cloning from ${GIT_REPO_URL} (branch: ${GIT_BRANCH})..."
+          git clone --depth 1 --single-branch --branch ${GIT_BRANCH} \
+            https://${GIT_USERNAME}:${GIT_TOKEN}@${GIT_REPO_URL} \
+            /wiremock-data
+          echo "Clone completed successfully"
+        volumeMounts:
+        - name: wiremock-data
+          mountPath: /wiremock-data
+      containers:
+      - name: wiremock
+        image: wiremock/wiremock:latest
+        args:
+        - --root-dir=/home/wiremock
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: wiremock-data
+          mountPath: /home/wiremock
+      volumes:
+      - name: wiremock-data
+        emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wiremock
+spec:
+  selector:
+    app: wiremock
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: ClusterIP

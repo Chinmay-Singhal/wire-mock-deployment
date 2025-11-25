@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:getCashAccountResponse xmlns:ns2="http://www.soprabanking.com/platform/CB/wsdl">
+      <getCashAccountOutResult>
+        <returnContext>
+          <exchangeReturnCod>0</exchangeReturnCod>
+        </returnContext>
+        <responseContext>
+          <optLockBufferOut>LOCK123456</optLockBufferOut>
+        </responseContext>
+        <getCashAccountOut>
+          <cashAccount>
+            <accountNumber>1234567890</accountNumber>
+            <accountType>CHECKING</accountType>
+            <currency>USD</currency>
+            <balance>25000.00</balance>
+            <status>ACTIVE</status>
+            <openDate>2024-01-15</openDate>
+            <clientRoot>CLIENT001</clientRoot>
+          </cashAccount>
+        </getCashAccountOut>
+      </getCashAccountOutResult>
+    </ns2:getCashAccountResponse>
+  </soap:Body>
+</soap:Envelope>

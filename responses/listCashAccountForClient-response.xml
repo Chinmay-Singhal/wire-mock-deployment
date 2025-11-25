@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <ns2:listCashAccountForClientResponse xmlns:ns2="http://www.soprabanking.com/platform/CB/wsdl">
+      <listCashAccountForClientOutResult>
+        <returnContext>
+          <exchangeReturnCod>0</exchangeReturnCod>
+        </returnContext>
+        <responseContext>
+          <totalRecords>2</totalRecords>
+        </responseContext>
+        <listCashAccountForClientOut>
+          <cashAccountList>
+            <cashAccount>
+              <accountNumber>4444444444</accountNumber>
+              <accountType>CHECKING</accountType>
+              <currency>USD</currency>
+              <balance>12000.00</balance>
+              <status>ACTIVE</status>
+              <clientRoot>CLIENT001</clientRoot>
+            </cashAccount>
+            <cashAccount>
+              <accountNumber>5555555555</accountNumber>
+              <accountType>SAVINGS</accountType>
+              <currency>USD</currency>
+              <balance>30000.00</balance>
+              <status>ACTIVE</status>
+              <clientRoot>CLIENT001</clientRoot>
+            </cashAccount>
+          </cashAccountList>
+        </listCashAccountForClientOut>
+      </listCashAccountForClientOutResult>
+    </ns2:listCashAccountForClientResponse>
+  </soap:Body>
+</soap:Envelope>
