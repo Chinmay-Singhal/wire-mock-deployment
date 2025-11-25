@@ -6,7 +6,7 @@ type: Opaque
 stringData:
   GIT_USERNAME: ""
   GIT_TOKEN: ""
-  GIT_REPO_URL: ""
+  GIT_REPO_URL: "https://github.com/Chinmay-Singhal/wire-mock-deployment.git"
   GIT_BRANCH: "main"
 ---
 apiVersion: apps/v1
@@ -64,8 +64,9 @@ spec:
         image: wiremock/wiremock:latest
         args:
         - --root-dir=/home/wiremock
+        - --port=8000
         ports:
-        - containerPort: 8080
+        - containerPort: 8000
         volumeMounts:
         - name: wiremock-data
           mountPath: /home/wiremock
@@ -81,6 +82,6 @@ spec:
   selector:
     app: wiremock
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8000
+    targetPort: 8000
   type: ClusterIP
